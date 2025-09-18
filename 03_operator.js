@@ -85,8 +85,8 @@ console.log(1 !== "1"); // ! <- 아니다
 console.log(1 / "하하"); // 계산할 수 없는(숫자 변환이 안되는) 문자열과 숫자를 연산 시도하면 NaN(Not A Number)라는 Number 타입이긴한데 유사 오류 취급인 값을 리턴함
 console.log(1 / 0); // 에러 안남(?)
 // 2) truthy/falsy한 값
-// 비어있다, 없다 -> false. [], {}, 0, undefined, null, ""
-// 0이 아닌 값(NaN 포함). [...]. {...}. "." -> true
+// 비어있다, 없다 -> false. [], {}, 0, undefined, null, "", NaN
+// 0이 아닌 값. [...]. {...}. "." -> true
 console.log("0 == false", 0 == false); // 자동변환 허용시 false 취급 가동
 console.log("0 === false", 0 === false); // 자동변환 비허용
 // 자바스크립트 자동변환 핵심
