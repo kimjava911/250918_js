@@ -33,23 +33,63 @@ a = a + 10;
 console.log("a", a);
 
 // a += 10; 와 a = a + 10; 은 같습니다.
-a += 10; 
+a += 10;
 console.log("a", a);
 
 // a -= 5; 와 a = a - 5; 는 같습니다.
-a -= 5; 
+a -= 5;
 console.log("a", a);
 
 // a *= 2; 와 a = a * 2; 는 같습니다.
-a *= 2; 
+a *= 2;
 console.log("a", a);
 
 // a /= 10; 와 a = a / 10; 은 같습니다.
-a /= 10; 
+a /= 10;
 console.log("a", a);
 
 // a %= 3; 와 a = a % 3; 은 같습니다.
-a %= 3; 
+a %= 3;
 console.log("a", a);
 
 // +-*/%**...
+
+// [비교연산자]
+// 숫자 (부등호)
+console.log("10 > 5", 10 > 5); // 10 > 5 맞다면 true, false
+// a > b => 맞으면 true. 틀리면 false
+// a >= b, a <= b, a > b, a < b. = 같거나.
+console.log('"a" > "b"', "a" > "b");
+// ASCII Code. Char. 뒤에 오는 문자들이 더 큰 값.
+// 대문자 A : 65 ~ 대문자 Z : 90.
+// 소문자 a : 97 ~ 소문자 z : 122.
+// 자바스크립트에서는 별도로 변환 없이도 글자 비교 가능
+// 동등연산자
+// 같다 =. = => 대입연산자. 같은지 여부 -> ==. !=.
+console.log("1 == 1", 1 == 1);
+console.log("10 == 1", 10 == 1);
+console.log("10 != 1", 10 != 1);
+console.log('"1" == 1', "1" == 1); // 자동변환을 시켜줍니다
+// 자바스크립트의 자동변환 2가지 종류.
+// 1) 문자-숫자 간 자동변환
+console.log(1 + "1"); // 더하기 연산의 경우 문자와 숫자를 더하기를 시도하면, 문자는 덧셈 연산을 할 경우 연결(concatenate)을 하고, 숫자는 덧셈(add)를 하는데, 덧셈에서는 문자가 이김
+const result = 2 + "2";
+console.log("result", typeof result);
+console.log(1 - "1"); // 덧셈 연산이 아니면...?
+console.log(1 * "2");
+console.log(1 / "2"); // 숫자로 자동 변환해줍니다
+console.log(1 == "1"); // 알아서 변환을 해준거다
+// 일치 연산자가 별도로 존재
+console.log(1 === "1"); // '자동 변환 없이' 값 자체로 비교하겠다
+console.log(1 !== "1"); // ! <- 아니다
+console.log(1 / "하하"); // 계산할 수 없는(숫자 변환이 안되는) 문자열과 숫자를 연산 시도하면 NaN(Not A Number)라는 Number 타입이긴한데 유사 오류 취급인 값을 리턴함
+console.log(1 / 0); // 에러 안남(?)
+// 2) truthy/falsy한 값
+// 비어있다, 없다 -> false. [], {}, 0, undefined, null, ""
+// 0이 아닌 값(NaN 포함). [...]. {...}. "." -> true
+console.log("0 == false", 0 == false); // 자동변환 허용시 false 취급 가동
+console.log("0 === false", 0 === false); // 자동변환 비허용
+// 자바스크립트 자동변환 핵심
+console.log("" == false); // 비어있는 류의 데이터는 falsy
+console.log("0" == false); // false도 일종의 숫자처럼 판정(false 0, true 1) 
+console.log("" == "0"); // 문자열간 비교가 되면서 정말 문자들 사이의 비교가 되면서 false.
